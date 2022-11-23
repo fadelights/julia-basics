@@ -169,8 +169,30 @@ bar((1, 2)...)
 date(y, m=1, d=1) = string(y, pad=4) * "-" * string(m, pad=2) * "-" * string(d, pad=2)
 
 date(2021)
-date(2021, 2)
+date(2021, d=2)
 date(2022, 6, 12)
+
+#= an explicit semicolon is required only when defining a function and
+only for passing varargs or computed keywords as shown below =#
+function shout(names...; exclaim_count=length(names), info...)
+    name_count = length(names)
+
+    sentence = """
+    You! You $(name_count > 1 ? name_count : "there")!
+    This is a list passed to me:
+    $([info...])
+    Do you know anything about this?"""
+
+    print(uppercase(sentence * "!"^exclaim_count))
+end
+
+
+shout("Mary", "Lu", age=30, height=180, sex='m')
+
+#= optionally, the semicolon can be used while calling the function
+to improve readability =#
+shout("Frank"; fav_food="Lubia-polo", fav_sport="Tennis")
+shout(; major="EE", married=false)
 
 # `do`
 md"""
