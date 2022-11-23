@@ -133,8 +133,8 @@ join(["Queen", "of", "Hearts"], " ")
 name = "Alice"
 surname = "Liddell"
 fullname = "$name $surname"
-"length($name) = $(length(name))"
-print("\$100")
+name_length = "length($name) = $(length(name))"
+price = "\$100"  # the book, not the person
 
 # string comparison is lexicographic
 "a man came" < "came a man"
