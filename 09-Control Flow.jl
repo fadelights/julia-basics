@@ -1,4 +1,3 @@
-# %%
 using Markdown
 
 md"""
@@ -8,7 +7,7 @@ List of control flow constructs:
 - Compound Expressions: `begin` and `;`
 - Conditional Evaluation: `if`-`elseif`-`else` and `?:` (ternary operator)
 - Short-Circuit Evaluation: logical operators `&&` (“and”) and `||` (“or”), and also chained comparisons
-- Repeated Evaluation: Loops: `while` and `for`
+- Repeated Evaluation (Loops): `while` and `for`
 - Exception Handling: `try`-`catch`, `error` and `throw`
 - Tasks (aka Coroutines): `yieldto`
 
@@ -18,7 +17,7 @@ Worthy notes:
     * When depending on this behavior, make sure all possible code paths define a value for the variable
 - `if` blocks also return a value, this value is simply the return value of
   the last executed statement in the branch that was chosen
-- Conditional expressions require strictly boolean operators (`1` or `""` or ... are not accepted)
+- Conditional expressions require strictly boolean operators (`1`, `""`, etc. are not accepted like Python)
 - Ternary operator requires whitespace around `?` and `:` (either space or newline)
 - Short-circuit evaluation can be used as shorthand conditionals
 
@@ -39,8 +38,7 @@ julia> function fact(n::Int)
 - Multiple containers can be iterated over at the same time in a single `for` loop using `zip`
 - When writing an error message, it is preferred to make the first word lowercase
 - The `error` function is used to produce an `ErrorException` that interrupts the normal flow of control
-    * Use `error` if you want to raise `ErrorException`s, which are generic exceptions
-    accompanied by a message as a string
+    * Use `error` if you want to raise `ErrorException`s, which are generic exceptions accompanied by a message as a string
     * Use `throw` when you want to control the type of exception raised
 
 """
@@ -85,8 +83,10 @@ else
 end
 
 # ternary operator
+praise = "I see you are a (wo)man of culture as well."
+blame = "You unworthy pig."
 your_kimetsu_rating = 9//10
-your_kimetsu_rating == 10//10 ? "I see you are a man of culture as well." : "You unworthy pig."
+your_kimetsu_rating == 10//10 ? praise : blame
 
 
 # %% short circuit evaluation
@@ -96,6 +96,10 @@ function fact(n::Int)
     n * fact(n-1)
 end
 
+
+# fact(-1)  # ERROR: n must be non-negative
+fact(0)
+fact(6)
 
 # 1 && true  ERROR: TypeError: non-boolean used...
 true && 1  # is okay
@@ -126,8 +130,8 @@ for i ∈ 1:3, j ∈ 4:6
     println((i, j))
 end
 
-nms = ["John", "Sherlock", "John"]
-surnms = ["Doe", "Holmes", "Watson"]
+nms = ["James", "Sherlock", "John"]
+surnms = ["Moriarty", "Holmes", "Watson"]
 for (name, surname) ∈ zip(nms, surnms)
     println((name, surname))
 end
@@ -144,7 +148,7 @@ function divide(a, b)
 end
 
 
-# divide(10, 0) ERROR: ...
+# divide(10, 0)  # ERROR: ...
 divide(10, 5)
 
 # try-catch-finally syntax
