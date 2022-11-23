@@ -22,6 +22,7 @@ Visit [the Julia docs](https://docs.julialang.org/en/v1/manual/arrays/) for more
 
 """
 
+
 # one dimensional array
 a  = [1, 2, 3]
 
@@ -54,6 +55,7 @@ md"""
 
 """
 
+
 # [IMPORTANT]
 md"""
 
@@ -64,6 +66,7 @@ Not paying attention to this can cause some serious headaches!
 `[1, 2, 3]` is **vertical** while `[1 2 3]` is **horizontal**.
 
 """
+
 
 # [IMPORTANT] learn the difference
 hcat([1, 2, 3], [4, 5, 6])  # 3x2
@@ -115,7 +118,7 @@ A[1:6]
 A[1:2, 3:4]
 A[1:2, 3:4] == A[[1, 2], [3, 4]]
 
-# advanced indexing
+# %% advanced indexing
 A[[1 2; 3 4]]
 A[[1 2; 3 4], 4]
 A[[1 2; 3 4], [3, 4]]
@@ -147,8 +150,7 @@ B .+ [1 2]  # [[1 2]; [1 2]]
 # use of functions for assignment
 setindex!(B, 1, 2, 2)  # setindex!(B, X, i_1, i_2, ..., i_n)
 
-## more advanced indexing ##
-
+# %% more advanced indexing
 # cartesian indices
 A[CartesianIndex(3, 2, 1)] == A[3, 2, 1]
 A[3, 2, 1]  # as long as it's 1...
@@ -165,23 +167,22 @@ A[[CartesianIndex(1, 1),
 # use `CartesianIndices` to get a list of all `CartesianIndex`es
 CartesianIndices(A)
 
-# LinearIndices are column-major
+# `LinearIndices` are column-major
 LinearIndices(A)
 
 # logical indexing
 filter = A .> 4
 A[filter]
 
-# recommended iteration methods
-
+# %% recommended iteration methods
 # element-wise
 for a in A
-    # something
+    println(a)
 end
 
 # index-wise
 for i in eachindex(A)
-    # something
+    println(i)
 end
 
 # (not) broadcasting
