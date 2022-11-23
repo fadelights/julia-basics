@@ -116,6 +116,10 @@ s[nextnext]
 eachindex(s)
 thisind(s, 2)
 
+# side note: unpack content of iterable object
+[eachindex(s)...]
+collect(eachindex(s))
+
 # convert data to/from UTF-8
 encoded = transcode(UInt32, "Cheshire Cat")  # convert to UTF-32
 decoded = transcode(String, encoded)  # convert to UTF-8
