@@ -27,8 +27,8 @@ typeof(x)
 -0x2
 -0x0002
 
-# exceeding the maximum representable value
-# of a given type results in a wraparound behavior
+#= exceeding the maximum representable value
+of a given type results in a wraparound behavior =#
 x = typemax(Int128)
 x + 1
 x + 1 == typemin(Int128)
@@ -42,13 +42,13 @@ x + 1 == typemin(Int128)
 1e10
 2.5e-4
 
-# the above results are all Float64 values
-# literal Float32 values can be entered by writing an f in place of e
+# the above results are all `Float64` values
+# literal `Float32` values can be entered by writing an `f` in place of `e`
 x = 0.5f0
 typeof(x)
 
-# Hexadecimal floating-point literals are also valid,
-# but only as Float64 values, with p preceding the base-2 exponent
+#= hexadecimal floating-point literals are also valid,
+but only as `Float64` values, with `p` preceding the base-2 exponent =#
 0x1p0
 0x1.8p3
 
@@ -77,22 +77,22 @@ Inf - Inf
 0 * Inf
 false * Inf
 
-# the eps() function:
-# eps gives the distance between 1.0 and
-# the next larger representable floating-point value
+#= the `eps()` function:
+`eps` gives the distance between 1.0 and
+the next larger representable floating-point value =#
 eps(Float16)
 eps(Float32)
 eps(Float64)
 
-# the distance between two adjacent representable floating-point numbers
-# is not constant, but is smaller for smaller values and larger for larger values
+#= the distance between two adjacent representable floating-point numbers
+is not constant, but is smaller for smaller values and larger for larger values =#
 eps(1e+27)
 eps(1.)
 eps(0.0)
 eps(1e-37)
 
-# `nextfloat` and `prevfloat` are used to represent the next smallest
-# representable value
+#= `nextfloat` and `prevfloat` are used to represent the next smallest
+representable value =#
 x = 1.0
 nextfloat(x)
 prevfloat(x)
@@ -106,8 +106,8 @@ BigInt(typemax(Int128)) + 1
 BigFloat(2.0 ^ 66) / 3
 big"123456789012345678901234567890" + 1
 
-# type promotion between the primitive types above and BigInt/BigFloat
-# is not automatic and must be explicitly stated
+#= type promotion between the primitive types above and `BigInt`/`BigFloat`
+is not automatic and must be explicitly stated =#
 typemin(Int128) - 1
 
 # Julia supports numeric literal coefficients
@@ -115,25 +115,25 @@ x = 3
 2x^2 + 3x - 1
 2(x-1)^2 - 3(x-1) + 1
 
-# the precedence of numeric literal coefficients used for implicit multiplication
-# is higher than other binary operators such as multiplication, exponentation, etc
+#= the precedence of numeric literal coefficients used for implicit multiplication
+is higher than other binary operators such as multiplication, exponentation, etc =#
 2^3x == 2^(3x)
 1 / 2im == 1 / (2im)
 6 // 2(2 + 1) == 6 // (2(2 + 1))
 
-# the precedence of numeric literal coefficients is slightly
-# lower than that of unary operators such as negation
+#= the precedence of numeric literal coefficients is slightly
+lower than that of unary operators such as negation =#
 -2x == (-2) * x
 √2x == (√2) * x
 
 #=
 Expressions starting with 0x/0o/0b are always hexadecimal/octal/binary literals
-Expressions starting with a numeric literal followed by e or E are always floating-point literals
-Expressions starting with a numeric literal followed by f are always 32-bit floating-point literals
+Expressions starting with a numeric literal followed by `e` or `E` are always floating-point literals
+Expressions starting with a numeric literal followed by `f` are always 32-bit floating-point literals
 =#
 
-# Julia provides functions which return literal 0 and 1
-# corresponding to a specified type or the type of a given variable
+#= Julia provides functions which return literal 0 and 1
+corresponding to a specified type or the type of a given variable =#
 zero(Float32)
 zero(Bool)
 one(Int16)
