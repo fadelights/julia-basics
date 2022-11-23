@@ -162,7 +162,7 @@ foo(1, 2, 3, 4)
 # decompose iterable in function call
 bar(x, y) = y - x
 
-# bar((1, 2)) ERROR: MethodError: ...
+# bar((1, 2))  # ERROR: MethodError: ...
 bar((1, 2)...)
 
 # optional arguments

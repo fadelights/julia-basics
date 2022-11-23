@@ -18,6 +18,7 @@ Worthy notes:
 
 """
 
+
 # Unicode names (in UTF-8 encoding) are allowed
 UniversalDeclarationOfHumanRightsStart = "人人生而自由，在尊严和权利上一律平等。"
 δ = 0.00001
@@ -25,7 +26,7 @@ UniversalDeclarationOfHumanRightsStart = "人人生而自由，在尊严和权�
 🐱 = "cat face"
 
 # Built-in keywords are disallowed
-# if = 10 -> ERROR: syntax: unexpected "else"
+# if = 10  # ERROR: syntax: unexpected "else"
 
 md"""
 # Stylistic Conventions

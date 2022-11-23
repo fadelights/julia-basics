@@ -7,10 +7,10 @@ y = 7
 # power
 x ^ y
 
-# integer divide (x / y, truncated to an integer)
+# integer divide (`x / y`, truncated to an integer)
 x ÷ y
 
-# inverse divide (equivalent to y / x)
+# inverse divide (equivalent to `y / x`)
 x \ y
 
 # negation

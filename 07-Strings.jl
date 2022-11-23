@@ -91,7 +91,7 @@ str[1]  # one-based indexing
 str[11:17]
 str[end]
 str[end:-1:end-6]
-# str[end + 1] ERROR: BoundsError: ...
+# str[end + 1]  # ERROR: BoundsError: ...
 
 # functions to return first and last index
 firstindex(str)
@@ -104,7 +104,7 @@ typeof(substr)
 # string with some character bytes > 0
 s = "\u2200 x \u2203 y"
 s[1]
-# s[2], s[3] ERROR: StringIndexError: ...
+# s[2], s[3]  # ERROR: StringIndexError: ...
 
 # next vaild index for multi-byte characters
 next = nextind(s, 1)
@@ -174,7 +174,7 @@ line = "The fat cat raced to the carrot cart."
 re = r"(c)(a)(r|t)"  # () is a capturing group
 m = match(re, line)
 
-# RegexMatch objects have the following attributes
+# `RegexMatch` objects have the following attributes
 m.match
 m.captures
 m.offset

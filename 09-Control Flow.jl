@@ -101,7 +101,7 @@ end
 fact(0)
 fact(6)
 
-# 1 && true  ERROR: TypeError: non-boolean used...
+# 1 && true  # ERROR: TypeError: non-boolean used...
 true && 1  # is okay
 
 

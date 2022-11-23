@@ -156,13 +156,13 @@ A[CartesianIndex(3, 2, 1)] == A[3, 2, 1]
 A[3, 2, 1]  # as long as it's 1...
 A[3, 2, 1, 1, 1, 1]
 
-# arrays of CartesianIndex ease point-wise indexing
+# arrays of `CartesianIndex` ease point-wise indexing
 A[[CartesianIndex(1, 1),
    CartesianIndex(2, 2),
    CartesianIndex(3, 3),
    CartesianIndex(4, 4)]]
 
-# WARNING: CartesianIndex does not support the `end` keyword
+# WARNING: `CartesianIndex` does not support the `end` keyword
 
 # use `CartesianIndices` to get a list of all `CartesianIndex`es
 CartesianIndices(A)
