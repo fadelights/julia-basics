@@ -28,17 +28,17 @@ You can also find the numerical precedence for any given operator via the built-
     ```
     julia> Base.operator_precedence(:+), Base.operator_precedence(:*), Base.operator_precedence(:.)
     (11, 12, 17)
-    
+
     julia> Base.operator_precedence(:sin), Base.operator_precedence(:+=), Base.operator_precedence(:(=))  # (Note the necessary parens on `:(=)`)
     (0, 1, 1)
     ```
-    
+
 A symbol representing the operator associativity can also be found by calling the built-in function `Base.operator_associativity`.
 
 [^1]:
-    The unary operators `+` and `-` require explicit parentheses around their argument 
+    The unary operators `+` and `-` require explicit parentheses around their argument
     to disambiguate them from the operator `++`, etc. Other compositions of unary operators are parsed with
-    right-associativity, e. g., `√√-a` as `√(√(-a))`.
+    right-associativity, e.g., `√√-a` as `√(√(-a))`.
 
 [^2]:
     The operators `+`, `++` and `*` are non-associative. `a + b + c` is parsed as `+(a, b, c)` not `+(+(a, b),c)`.
