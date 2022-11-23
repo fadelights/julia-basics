@@ -76,6 +76,9 @@ julia> x -> x^2 + 2x - 1
 ```
 julia> foo(arg1, arg2, args...) = (arg1, arg2, args)
 foo (generic function with 1 method)
+
+julia> foo(1, 2, 3, 4, 5, 6)
+(1, 2, (3, 4, 5, 6))
 ```
 
 - The `...` syntax can be used for decomposition of iterables inside calls
