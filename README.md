@@ -2,7 +2,7 @@
 Repo containing the notes I took (in the form of .jl scripts)
 while reading through the Julia language documentation.
 
-## Running the scripts
+## Usage
 The scripts are best used in combination with
 Visual Studio Code's official Julia extension;
 by pressing <kbd>Ctrl</kbd>+<kbd>Enter</kbd> on each line (or block)
