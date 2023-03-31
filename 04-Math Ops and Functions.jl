@@ -64,6 +64,12 @@ A = [0, π/2, π, 3π/2, 2π]
 cos(a)
 cos.(A)
 
+# use `Ref` for a function argument to be treated as scalar
+f(X, y) = sum(X) + y
+f([1, 2], 3)
+# f.([1, 2], [3, 4, 5])  # ERROR: DimensionMismatch...
+f.(Ref([1, 2]), [3, 4, 5])  # correct way. the first argument is not broadcasted
+
 # `NaN` is never equal to itself
 # `isequal` can be used in such cases
 NaN == NaN
