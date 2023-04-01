@@ -189,3 +189,12 @@ end
 # ([1, 2, 3], [4, 5, 6]) .+ [1, 2, 3]  # ERROR: DimensionMismatch...
 ([1, 2, 3], [4, 5, 6]) .+ ([1, 2, 3], )  # correct way. the tuple "protects" the array from being broadcast element-wise
 ([1, 2, 3], [4, 5, 6]) .+ tuple([1, 2, 3])  # correct
+
+#= slicing an array creates a copy of it,
+therefore it is recommended to create a view
+into an array when copies are not required;
+to prevent new memory allocation--which also
+saves time=#
+a = [1, 2, 3, 4, 5]
+a[3:end]  # new copy; expensive operation
+view(a, 3:lastindex(a))  # referencing same location; lightweight operation
