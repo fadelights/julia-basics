@@ -129,6 +129,11 @@ string("Queen", "of", "Hearts")
 "Queen" * "of" * "Hearts"
 join(["Queen", "of", "Hearts"], " ")
 
+# strip & split
+s = "{3, 4, 5}\n"
+s = strip(s, ['{', '}', '\n'])
+s = split(s, ", ")
+
 # interpolation
 name = "Alice"
 surname = "Liddell"
