@@ -221,6 +221,11 @@ function unstable(flag::Bool)
 end
 
 
+#= use `methodswith` to get a list of all
+methods accepting as input a specific type =#
+methodswith(Vector, Base)
+
+
 md"""
 Types in module `Main` cannot be redefined.
 wrap them inside a module and re-include that
