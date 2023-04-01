@@ -226,6 +226,24 @@ methods accepting as input a specific type =#
 methodswith(Vector, Base)
 
 
+#= "value" and "object" are two different notions.
+two variables may have the same value but not be the
+same object use === or \equiv TAB to check for identity =#
+a = "banana"
+b = "banana"
+a === b
+
+a = [1, 2, 3]
+b = [1, 2, 3]
+a === b
+
+c = a
+a === a
+
+d = copy(a)
+a === d
+
+
 md"""
 Types in module `Main` cannot be redefined.
 wrap them inside a module and re-include that
