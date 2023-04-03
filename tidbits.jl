@@ -161,6 +161,11 @@ params = [2, 3, 7]
 triplet(params...)
 
 
+# `collect` is much faster than splatting
+@time [1:10_000_000...]
+@time collect(1:10_000_000)
+
+
 #= one cannot simply add CTRL-C handling
 to a Julia script =#
 
