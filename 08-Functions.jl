@@ -147,6 +147,12 @@ anonymous(2, 3)
 3, 4
 golden_ratio, nepper = MathConstants.golden, MathConstants.e
 
+x, y = 1, 2, 3  # extra elements are ignored
+x, y
+
+x, y... = 1, 2, 3  # extra elements assigned
+x, y
+
 # named tuples
 namedtup = (name="Shoto", surname="Todoroki")
 namedtup[1]
