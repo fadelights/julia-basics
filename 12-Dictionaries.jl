@@ -2,6 +2,7 @@
 Dict()  # empty dict
 Dict("A"=>7, "B"=>13, "C"=>42)  # each `x=>y` is called a `Pair` object
 Dict([("A", 7), ("B", 13), ("C", 42)])  # using iterator of tuples of the form (key, val)
+Dict(zip(1:26, 'A':'Z'))
 Dict(i => i^2 for i in 1:10)  # using generators
 
 # explicit type specification: `Dict{KeyType, ValueType}(...)`
@@ -33,8 +34,8 @@ pop!(D, 'D', 0)  # supply default value to return for when key isn't present
 
 # retrieve stuff
 keys(D)
-values(D)  # unnecessary, since elements of an iterator are normally considered its "values"
-pairs(D)  # unnecessary... sorta
+values(D)
+pairs(D)
 
 # merge dicts
 a = Dict('a'=>1, 'b'=>2)
