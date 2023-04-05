@@ -227,7 +227,9 @@ end
 
 
 #= use `methodswith` to get a list of all
-methods accepting as input a specific type =#
+methods accepting as input a specific type
+
+NOTE: available only in interactive sessions =#
 methodswith(Vector, Base)
 
 
@@ -278,3 +280,26 @@ which could easily do something completely different
 (and break all/many future usages of the other
 functions in module `Foo` that depend on calling `bar`)
 """
+
+
+md"""
+Sometimes, it may be inefficient to compute two related but different
+values using different functions, when the whole process can be
+combined into one. This section provides some of Julia's efficient
+implementations of common related operations.
+"""
+
+
+# get the quotient and remainder of a division
+q, r = divrem(7, 3)
+
+# get the min and max values of a sequence
+x = rand(1:1000, 100)
+min, max = extrema(x)
+
+# multi-value assignment
+a, b, c = 10, 1e2, 1e3, 1e4  # extra values get discarded
+a, b, c
+
+a, b, c... = 10, 1e2, 1e3, 1e4  # extra values kept!
+a, b, c
