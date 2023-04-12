@@ -251,6 +251,35 @@ d = copy(a)
 a === d
 
 
+#= aliasing vs. copying vs. deep copying =#
+a = BigInt(1)
+b = BigInt(1)
+a == b
+a === b  # `BigInt` instances are not the same object
+
+# aliasing, no copy
+A = BigInt.([1, 2, 3])
+B = A
+A == B
+A === B
+A[1] == B[1]
+A[1] === B[1]
+
+# shallow copy
+B = copy(A)
+A == B
+A === B
+A[1] == B[1]
+A[1] === B[1]  # the elements have not been copied, only aliased
+
+# deep copy
+B = deepcopy(A)
+A == B
+A === B
+A[1] == B[1]
+A[1] === B[1]  # the elements have also been copied
+
+
 md"""
 Types in module `Main` cannot be redefined.
 wrap them inside a module and re-include that
