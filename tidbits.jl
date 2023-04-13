@@ -335,3 +335,15 @@ a, b, c
 
 a, b, c... = 10, 1e2, 1e3, 1e4  # extra values kept!
 a, b, c
+
+#= `mapreduce(f, op, itr)` is equivalent to
+`reduce(op, map(f, itr))` but faster =#
+mapreduce(x->x^2, +, 1:3)  # == 1 + 4 + 9
+
+#= a more advanced example:
+this example takes a vector of strings and converts
+it to a numerical matrix =#
+str_matrix = ["1 2 3"; "4 5 6"; "7 8 9"]
+int_matrix = mapreduce(hcat, str_matrix) do x
+    parse.(Int, split(x))
+end'  # matrices are column-based in Julia, ' transposes the result
