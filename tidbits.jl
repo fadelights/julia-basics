@@ -26,7 +26,7 @@ x = 0
 # end
 
 while x < 10
-    global x += 2  # Correct
+    global x += 2  # correct
     println(x)
 end
 
